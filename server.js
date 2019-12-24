@@ -19,10 +19,16 @@ const apolloServer = new ApolloServer({
 
 apolloServer.applyMiddleware({ app });
 
-db.sequelize.sync().then(() => {
-	db.User.create({
-		firstName: "hmmkaca",
-		lastName: "hmmkacas gvari"
+db.sequelize.sync().then(async () => {
+	const user = await db.User.create({
+		firstName: "dummy firstName",
+		lastName: "dummy lastName"
 	});
+
+	db.Project.create({
+		title: "dummy title " + user.id,
+		userId: user.id
+	});
+
 	app.listen({ port: 4000 }, () => console.log("Listening..."));
 });
