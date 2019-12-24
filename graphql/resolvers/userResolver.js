@@ -14,6 +14,12 @@ const userResolver = {
 		createUser: (parent, args, context, info) => {
 			return "user created";
 		}
+	},
+
+	User: {
+		projects: (parent, args, context, info) => {
+			return "projects returned";
+		}
 	}
 };
 

@@ -6,6 +6,7 @@ export default gql`
 		firstName: String
 		lastName: String
 		email: String
+		projects: [Project!]!
 	}
 
 	input UserInput {
