@@ -2,6 +2,8 @@ import { login, register } from "../../services/authService";
 import { findByEmail } from "../../services/userService";
 
 import { LoginStatusEnum, SignupStatusEnum } from "../../helpers/enums/AuthStatusEnum";
+
+import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "../../config/keys";
 
 const authResolver = {

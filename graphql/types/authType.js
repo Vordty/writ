@@ -27,6 +27,6 @@ export default gql`
 
 	type Mutation {
 		login(email: String!, password: String!): LoginStatus!
-		signup(signupInput: SignupInput!): SignupStatus!
+		signup(signupInput: SignupInput): SignupStatus!
 	}
 `;

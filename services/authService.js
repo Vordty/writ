@@ -19,8 +19,10 @@ export const login = async (email, password) => {
 
 export const register = async signupInput => {
 	const salt = await genSalt(10);
-	const hashedPassword = await hash(password, salt);
+	const hashedPassword = await hash(signupInput.password, salt);
 
 	signupInput.password = hashedPassword;
-	return createUser(signupInput);
+	return await createUser({
+		...signupInput
+	});
 };
