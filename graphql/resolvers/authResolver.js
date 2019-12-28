@@ -1,5 +1,5 @@
 import { login, register } from "../../services/authService";
-import { findByEmail } from "../../services/userService";
+import { findByEmail, findByPk } from "../../services/userService";
 
 import { LoginStatusEnum, SignupStatusEnum } from "../../helpers/enums/AuthStatusEnum";
 
@@ -9,15 +9,15 @@ import { JWT_SECRET } from "../../config/keys";
 const authResolver = {
 	Query: {
 		getAuthedUser: (parent, args, context, info) => {
-			// return findByPk( ENTER AUTHENTICATED USER'S ID )
+			return findByPk(context.authUserId);
 		}
 	},
 
 	Mutation: {
-		login: (parent, args, context, info) => {
+		login: async (parent, args, context, info) => {
 			const { email, password } = args;
 
-			const user = login(email, password);
+			const user = await login(email, password);
 
 			if (!user) {
 				return LoginStatusEnum.FAILURE;

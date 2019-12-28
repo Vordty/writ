@@ -5,7 +5,7 @@ import { findByEmail, createUser } from "./userService";
 import { compare, genSalt, hash } from "bcryptjs";
 
 export const login = async (email, password) => {
-	const user = findByEmail(email);
+	const user = await findByEmail(email);
 
 	if (!user) return;
 
