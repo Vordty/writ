@@ -23,8 +23,4 @@ export default gql`
 		user(id: Int!): User
 		users: [User] @auth
 	}
-
-	type Mutation {
-		createUser(input: UserInput!): User!
-	}
 `;

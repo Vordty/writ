@@ -10,12 +10,6 @@ const userResolver = {
 		}
 	},
 
-	Mutation: {
-		createUser: (parent, args, context, info) => {
-			return "user created";
-		}
-	},
-
 	User: {
 		projects: (parent, args, context, info) => {
 			return findProjects(parent.id);
