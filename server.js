@@ -33,9 +33,6 @@ const apolloServer = new ApolloServer({
 
 			const payload = jwt.verify(token, JWT_SECRET);
 
-			const newToken = jwt.sign(payload, JWT_SECRET);
-			res.set("Authorization", `Bearer ${newToken}`);
-
 			context.authUserId = payload.id;
 		} catch (error) {
 			console.log(error);
