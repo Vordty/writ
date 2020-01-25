@@ -11,9 +11,9 @@ export const LoginStatusEnum = {
 export const SignupStatusEnum = {
 	SUCCESS: user => ({ success: true, message: "Success!", user: user }),
 
-	FAILURE: {
+	FAILURE: message => ({
 		success: false,
-		message: "Email Taken",
+		message: message,
 		user: undefined
-	}
+	})
 };
