@@ -5,17 +5,15 @@ export default gql`
 
 	type User {
 		id: Int!
-		firstName: String
-		lastName: String
 		email: String
+		username: String
 		password: String
 		projects: [Project!]!
 	}
 
 	input UserInput {
-		firstName: String
-		lastName: String
 		email: String
+		username: String
 		password: String
 	}
 
