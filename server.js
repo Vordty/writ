@@ -27,8 +27,8 @@ const apolloServer = new ApolloServer({
 
 		try {
 			const token = req.headers.authorization;
-			if (!token) {
-				return undefined;
+			if (token === "null") {
+				return;
 			}
 
 			const payload = jwt.verify(token, JWT_SECRET);
