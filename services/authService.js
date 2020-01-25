@@ -17,7 +17,7 @@ export const login = async (email, password) => {
 	return user;
 };
 
-export const register = async signupInput => {
+export const signup = async signupInput => {
 	const salt = await genSalt(10);
 	const hashedPassword = await hash(signupInput.password, salt);
 
