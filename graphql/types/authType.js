@@ -13,6 +13,11 @@ export default gql`
 		user: User
 	}
 
+	type ConfirmationStatus {
+		success: Boolean!
+		message: String!
+	}
+
 	input SignupInput {
 		email: String!
 		username: String!
@@ -28,5 +33,6 @@ export default gql`
 		login(email: String!, password: String!): LoginStatus!
 		signup(signupInput: SignupInput): SignupStatus!
 		signupTest(signupInput: SignupInput): SignupStatus!
+		sendConfirmationCode(email: String!): ConfirmationStatus!
 	}
 `;

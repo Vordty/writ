@@ -1,7 +1,7 @@
 import { login, signup } from "../../services/authService";
 import { findByEmail, findByPk } from "../../services/userService";
 
-import { LoginStatusEnum, SignupStatusEnum } from "../../helpers/enums/AuthStatusEnum";
+import { LoginStatusEnum, SignupStatusEnum, ConfirmationStatusEnum } from "../../helpers/enums/AuthStatusEnum";
 
 import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "../../config/keys";
@@ -56,6 +56,11 @@ const authResolver = {
 			}
 
 			return SignupStatusEnum.SUCCESS(null);
+		},
+
+		sendConfirmationCode: async (parent, args, context, info) => {
+			// for now
+			return ConfirmationStatusEnum.FAILURE;
 		}
 	}
 };
