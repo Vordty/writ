@@ -17,3 +17,15 @@ export const SignupStatusEnum = {
 		user: undefined
 	})
 };
+
+export const ConfirmationStatusEnum = {
+	SUCCESS: {
+		success: true,
+		message: "Confirmation Success"
+	},
+
+	FAILURE: {
+		success: false,
+		message: "Confirmation Failure"
+	}
+};
