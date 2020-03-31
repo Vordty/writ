@@ -7,8 +7,14 @@ export default gql`
 
 	type FileTree {
 		id: Int
-		data: JSONObject
+		data: JSON
 		projectId: Int
+	}
+
+	type FileTreeStatus {
+		success: Boolean!
+		message: String!
+		fileTree: FileTree!
 	}
 
 	type Query {
@@ -16,6 +22,6 @@ export default gql`
 	}
 
 	type Mutation {
-		updateFileTree(id: Int!, data: JSONObject!): FileTree
+		updateFileTree(id: Int!, data: JSON!): FileTreeStatus
 	}
 `;
